@@ -1,16 +1,13 @@
 import csv
 from django.http import HttpResponse
+from rest_framework.response import Response
 from rest_framework import viewsets, mixins, status
-
 from common.models import Area, Status
-
-from .serializers import AreaSerializer, MyQueryParamSerializer, StatusSerializer
-from django.urls import include, path
-from rest_framework.response import Response
+from .serializers import AreaSerializer, StatusSerializer
 from rest_framework import viewsets, status
-from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from rest_framework.parsers import MultiPartParser
 
 class CRUDViewSet(
     viewsets.GenericViewSet,
@@ -84,27 +81,19 @@ class ExportDataViewSet(viewsets.GenericViewSet):
 
         return None
 
-from rest_framework import viewsets, status
-from rest_framework.response import Response
-from drf_yasg.utils import swagger_auto_schema
-from drf_yasg import openapi
-
 class ImportDataViewSet(viewsets.GenericViewSet):
     serializer_classes = {
         'area': AreaSerializer,
         'status': StatusSerializer,
     }
     http_method_names = ["post"]
+    parser_classes = [MultiPartParser]
 
     @swagger_auto_schema(
-        request_body=openapi.Schema(
-            type=openapi.TYPE_OBJECT,
-            properties={
-                'model_name': openapi.Schema(type=openapi.TYPE_STRING),
-                'file': openapi.Schema(type=openapi.TYPE_FILE),
-            },
-            required=['model_name', 'file'],
-        ),
+        manual_parameters=[
+            openapi.Parameter('file', openapi.IN_FORM, type=openapi.TYPE_FILE, description='Upload CSV file to import data'),
+            openapi.Parameter('model_name', openapi.IN_FORM, type=openapi.TYPE_STRING, description='Model name')
+        ],
         responses={
             201: openapi.Schema(
                 type=openapi.TYPE_OBJECT,
@@ -119,8 +108,6 @@ class ImportDataViewSet(viewsets.GenericViewSet):
                 }
             ),
         },
-        operation_summary="Upload CSV file to import data",
-        operation_description="Upload a CSV file along with the model name to import data.",
     )
     def create(self, request):
         model_name = request.data.get('model_name', None)
@@ -142,7 +129,7 @@ class ImportDataViewSet(viewsets.GenericViewSet):
 
     def read_csv_file(self, file):
         data = []
-        reader = csv.DictReader(file)
+        reader = csv.DictReader(file.read().decode('utf-8').splitlines())
         for row in reader:
             data.append(row)
         return data
