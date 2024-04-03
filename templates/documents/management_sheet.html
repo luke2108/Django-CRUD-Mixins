@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MS</title>
+  <style>
+    *,
+    h1,
+    h2,
+    h3,
+    h6,
+    p {
+      margin: 0;
+      padding: 0;
+      font-weight: 300;
+      list-style: none
+    }
+
+    .d-flex {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex
+    }
+
+    .text-red {
+      color: #f63f3f
+    }
+
+    .text-left {
+      text-align: left !important;
+    }
+
+    .text-right {
+      text-align: right !important;
+    }
+
+    .text-center {
+      text-align: center !important;
+    }
+
+    .text-decoration {
+      text-decoration: underline !important;
+    }
+
+    .align-items-center {
+      -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+      align-items: center !important
+    }
+
+    .justify-content-between {
+      -webkit-box-pack: justify !important;
+      justify-content: space-between !important;
+    }
+
+    .justify-content-center {
+      -webkit-box-pack: center;
+      justify-content: center !important;
+    }
+
+    .font-weight-bold {
+      font-weight: 900;
+    }
+
+    .mt-3,
+    .my-3 {
+      margin-top: 1rem !important
+    }
+
+    .mr-2 {
+      margin-right: 0.5rem !important;
+    }
+
+    .mt-2 {
+      margin-top: 0.5rem !important;
+    }
+
+    .p-1 {
+      padding: 0.25rem !important;
+    }
+
+    .gap-1 {
+      gap: 0.25rem !important;
+    }
+
+    .ml-2 {
+      margin-left: 0.5rem !important;
+    }
+
+    .flex-grow-1 {
+      flex-grow: 1 !important;
+    }
+
+    .border-b {
+      border-width: 0 0 1px 0;
+    }
+
+    .template-pdf {
+      padding: 0 13px 0 42px;
+      width: 680px;
+      margin: 0 auto;
+      height: 962px;
+    }
+
+    .ms {
+      font-family: "MS Mincho";
+      width: 100%;
+      /* background: #fff; */
+      position: relative;
+      font-weight: 700;
+    }
+
+    .ms-sticker {
+      position: absolute;
+      right: 11px;
+      padding: 2px;
+      font-size: 15px;
+      top: 16px;
+      border: 1px solid #000;
+      line-height: 1.25;
+    }
+
+    .ms-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+      align-items: center;
+    }
+
+    .ms-header__logo {
+      width: 80px;
+      height: 48px;
+      object-fit: fill;
+    }
+
+    .ms-header__text {
+      font-size: 18px;
+    }
+
+    .ms-line1 {
+      font-size: 11px;
+    }
+
+    .ms-line1__item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .ms-line1__input {
+      text-align: center;
+    }
+
+    .ms-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      border-top: 1px solid #000;
+      border-left: 1px solid #000;
+      border-right: 1px solid #000;
+    }
+
+    .ms .cell {
+      padding: 3px;
+    }
+
+    .ms .cell__value {
+      padding-left: 4px;
+      line-height: 1;
+    }
+
+    .ms .cell+.cell {
+      border-left: 1px solid #000;
+    }
+
+    .text-normal,
+    .completion-date,
+    .approved-flow__card {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .border-black-500,
+    .border-b,
+    .approved-flow .card__title,
+    .completion-date,
+    .approved-flow__card {
+      border-color: #111;
+      border-style: solid;
+    }
+
+    .border-b,
+    .approved-flow .card__title {
+      border-width: 0 0 1px 0;
+    }
+
+    .unit {
+      font-size: 10px;
+    }
+
+    .completion-date {
+      border-width: 0 1px 1px;
+    }
+
+    .approved-flow {
+      margin-top: 11px;
+    }
+
+    .approved-flow__card {
+      min-width: 160px;
+      height: auto;
+      border-width: 2px;
+      margin-right: 5px;
+    }
+
+    .approved-flow .card__title {
+      text-align: center;
+      font-weight: 600;
+      padding: 5px;
+    }
+
+    .approved-flow .card__body {
+      padding: 5px;
+      position: relative;
+    }
+
+    .approved-flow .card__body--stamp {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      border: 2px solid #f63f3f;
+      border-radius: 50px;
+      top: -2px;
+      right: 0;
+      z-index: 0;
+    }
+
+    .approved-flow .card__body--manager {
+      position: relative;
+      z-index: 2;
+    }
+
+    .template-2 {
+      border-color: #111;
+      border-style: solid;
+      border-width: 0 1px 1px;
+    }
+
+    .template-2 [class^='t'] {
+      padding: 0 5px;
+      border-color: black;
+      font-size: 11px;
+    }
+
+    .template-2 .th1 {
+      border-right: 1px solid;
+    }
+
+    .template-2 .th2 {
+      border-right: 1px solid;
+      border-top: 1px solid;
+    }
+
+    .template-2 .th3 {
+      border-right: 1px solid;
+      border-top: 1px solid;
+      font-size: 11px;
+    }
+
+    .template-2 .td3 {
+      border-top: 1px solid;
+      font-size: 11px;
+    }
+
+    .template-3 [class^='t'] {
+      padding: 0 5px;
+      border-color: black;
+      font-size: 11px;
+    }
+
+    .template-3 .th1 {
+      border-width: 1px 1px 0 0;
+      border-color: #111;
+      border-style: solid;
+      width: 15.1%;
+    }
+
+    .template-3 .th2 {
+      border-width: 1px 1px 0 0;
+      border-color: #111;
+      border-style: solid;
+      width: 15.1%;
+    }
+
+    .template-3 .th3 {
+      border-width: 1px 1px 0 0;
+      border-color: #111;
+      border-style: solid;
+      width: 15.1%;
+    }
+
+    .template-3 .th4 {
+      border-width: 1px 1px 0 0;
+      border-color: #111;
+      border-style: solid;
+      width: 15.1%;
+    }
+
+    .template-3 .th5 {
+      border-width: 1px 1px 0 0;
+      border-color: #111;
+      border-style: solid;
+      width: 15.1%;
+    }
+
+    .template-3 .th6 {
+      border-width: 1px 0 0 0;
+      border-color: #111;
+      border-style: solid;
+      width: 15.1%;
+    }
+
+    .img-mark {
+      height: 60px;
+      width: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="template-pdf">
+    <div class="ms">
+      <div class="ms-sticker">
+        {% if template_enterprise_name is not None and template_enterprise_name is not "" %}
+        {{template_enterprise_name}}提出用
+        {% else %}
+        ...提出用
+        {%endif%}
+      </div>
+      <div class="ms-header">
+        <!-- Logo of makeup shop -->
+        {% if template_logo is not None and template_logo is not "" %}
+        <img class="ms-header__logo" src="{{template_logo}}" alt="" />
+        {% else %}
+        <img class="ms-header__logo" src="" alt="" />
+        {%endif%}
+        <div class="ms-header__text">
+          「ルミフロン」ベースフッ素樹脂塗装管理シート
+        </div>
+      </div>
+      <div class="ms-line1 d-flex justify-content-between">
+        <div></div>
+        <div class="d-flex">
+          <span class="ms-line1__item" style="padding-right:20px">
+            <span class="ms-line1__text-1">記入者:
+              {{user_submit_approve.last_name}}{{user_submit_approve.first_name}}</span>
+          </span>
+          <span class="ms-line1__item">
+            <span class="ms-line1__input text-left pl-1" style="width: 240px">
+              {{construction_name}}
+            </span>
+            <span class="ms-line1__text-2">記入日</span>
+          </span>
+          <span class="ms-line1__item">
+            <span class="ms-line1__input text-right pr-1" style="width: 40px">
+              {{approve_request_date.year}}
+            </span>
+            <span class="ms-line1__text-3">年</span>
+          </span>
+          <span class="ms-line1__item">
+            <span class="ms-line1__input" style="width: 20px">
+              {{approve_request_date.month}}
+            </span>
+            <span class="ms-line1__text-4">月</span>
+          </span>
+          <span class="ms-line1__item">
+            <span class="ms-line1__input" style="width: 20px">
+              {{approve_request_date.day}}
+            </span>
+            <span class="ms-line1__text-5">日</span>
+          </span>
+        </div>
+      </div>
+
+      <div style="
+          font-size: 11px;
+          border-bottom: 1px solid #000;
+          margin-top: -2px;
+        ">
+        <div class="ms-row">
+          <div class="cell d-flex align-items-center">
+            <span>工事番号</span>
+            <p class="text-red">※1</p>
+            <span class="cell__value">{{ construction_no }}</span>
+          </div>
+          <div class="cell">
+            <span>工事名</span>
+            <span class="cell__value">{{ cms_kanna.title }}</span>
+          </div>
+        </div>
+        <div class="ms-row">
+          <div class="cell">
+            <span>
+              <span>現場住所</span>
+              <span class="cell__value">{{ms.prefecture}} {{ms.city}} {{ms.full_address}}</span>
+            </span>
+            <span style="padding-left: 15px;">
+              <span>tel:</span>
+              {% if ms.tel is not None %}
+              <span class="cell__value">{{ms.tel}}</span>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="template-2">
+        <div class="d-flex" style="width: 100%">
+          <div style="width: 30%">
+            <div class="th1">
+              {{template_shop_name}}No(*2) :
+              <span>{{shop_no}}</span>
+            </div>
+            <div class="th2">
+              責任者名 :
+              <span>{{pic.last_name}}{{pic.first_name}}</span>
+            </div>
+          </div>
+          <div class="td1" style="width: 70%;">
+            {{template_shop_name}}名 :
+
+            <span>{{shop.name}}</span>
+            <span style="float: right; width: 170px;" class="mr-2">
+              <span>tel:</span>
+              {% if shop.tel is not None %}
+              <span class="cell__value">{{shop.tel}}</span>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+        <div class="d-flex" style="width: 100%">
+          <div class="th3" style="width: 60%">
+            元請会社名 :
+            <span>
+              {% if ms.constractor_company is not None%}
+              {{ms.contractor_company}}
+              {%endif%}
+            </span>
+          </div>
+          <div class="td3 d-flex" style="width: 37%">タイプ:<p class="text-red" style="font-size: 11px;">※4</p>
+            <span>{{ms_type}}<span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actual Construction -->
+      {% for diagnostic in diagnostics %}
+      <div style="
+          border-style: solid;
+          border-width: 0 1px 1px 1px;
+          border-color: black;
+        ">
+
+        <div class="d-flex justify-content-between border-b p-1 text-normal">
+          <p>
+            <!-- 塗装部位名:<span>{{diagnostic.actual_construction.paint_parts_name}}</span> -->
+            塗装部位名:
+            <span>
+              {% if diagnostic.type == "ROOF"%}
+              屋根
+              {%else%}
+              外壁
+              {%endif%}
+            </span>
+          </p>
+          <p>
+            基材素地 :<span>
+              {{diagnostic.actual_construction.basic_material}}
+            </span>
+          </p>
+          <p style="margin-right: 100px">
+            塗装面積(<span class="unit">m<sup>2</sup></span> ) :
+            {% if diagnostic.actual_construction.paint_area is not None %}
+            <span>{{diagnostic.actual_construction.paint_area}}</span>
+            {% endif %}
+            <span class="unit">m<sup>2</sup></span>
+          </p>
+        </div>
+
+        <div class="d-flex justify-content-between p-1 text-normal">
+          <p>
+            塗装メーカー:
+            <span></span>
+          </p>
+          <p>
+            塗装仕様名:
+            <span>{{diagnostic.construction_method.spec_name}}</span>
+          </p>
+          <p style="margin-right: 100px">
+            備考 (*3):
+            {% if diagnostic.actual_construction.notes is not None %}
+            <span>{{diagnostic.actual_construction.notes}}</span>
+            {% endif %}
+          </p>
+        </div>
+
+        <div class="template-3">
+          <div class="d-flex">
+            <div class="th1 row1"></div>
+            <div class="th2 row1 text-center">下塗材１</div>
+            <div class="th3 row1 text-center">下塗材２</div>
+            <div class="th4 row1 text-center">中塗材</div>
+            <div class="th5 row1 text-center">上塗材１</div>
+            <div class="th6 row1 text-center">上塗材 2</div>
+          </div>
+
+          <div class="d-flex">
+            <div class="th1 row2">施工年月日</div>
+            {% for ct_method in diagnostic.actual_construction_method_types %}
+            <div class="th2 row2 text-right">{{ct_method.construction_time}}</div>
+            {%endfor%}
+          </div>
+
+          <div class="d-flex">
+            <div class="th1 row3">材料名</div>
+            {% for ct_method in diagnostic.actual_construction_method_types %}
+            <div class="th2 row3 text-right">{{ct_method.material.name}}</div>
+            {%endfor%}
+          </div>
+
+          <div class="d-flex">
+            <div class="th1 row4">使用缶数</div>
+            {% for ct_method in diagnostic.actual_construction_method_types %}
+            <div class="th2 row4 text-right">
+              <span class="unit">{{ct_method.number_of_crates}}</span>
+            </div>
+            {%endfor%}
+          </div>
+
+          <div class="d-flex">
+            <div class="th1 row5">使用量</div>
+            {% for ct_method in diagnostic.actual_construction_method_types %}
+            <div class="th2 row5 text-right"> {{ct_method.amount_of_use}}
+              <span class="unit">kg/m<sup>2</sup></span>
+            </div>
+            {%endfor%}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="d-flex align-items-end gap-1 text-sm">
+        <p class="border-b"></p>
+        <p class="p-1 completion-date">
+          <span class="pr-3">完了日:</span> {{expect_approve_completed_date.year}} 年
+          {{expect_approve_completed_date.month}} 月 {{expect_approve_completed_date.day}} 日
+        </p>
+      </div>
+    </div>
+
+    <div class="ms">
+      <p class="text-normal mt-2">
+        {% if template_enterprise_name is not None and template_enterprise_name is not "" %}
+        お客様満足の向上のために、{{template_enterprise_name}}株式会社からアンケートご案内などをお送りする場合がございます。
+        {% else %}
+        お客様満足の向上のために、...株式会社からアンケートご案内などをお送りする場合がございます。
+        {%endif%}
+        ご不要場合は右の□に
+        {% if ms.is_agree_info_above == True %}
+        「✔️」
+        {% else %}
+        「 」
+        {%endif%}
+        をお願い致します。
+        {% if ms.is_agree_to_send_survey == True %}
+        「✔️」ご不要
+        {% else %}
+        「 」 ご不要
+        {%endif%}
+      </p>
+
+      <div class="d-flex gap-1">
+        <p class="text-normal">
+          *業務の遂行上必要と思われる範囲で外部の業務委託先に開示する場合がございます。<br />
+          {% if template_enterprise_name is not None and template_enterprise_name is not "" %}
+          この場合、{{template_enterprise_name}}は個人情報保護に万全を期するように努めます。
+          {% else %}
+          この場合、...は個人情報保護に万全を期するように努めます。
+          {%endif%}
+        </p>
+      </div>
+
+      <div class="approved-flow d-flex">
+        <div class="approved-flow__card" style="width:32%">
+          <div class="card__title">{{template_shop_name}}</div>
+          <div class="card__body">
+            <p class="card__body--company-name pb-3" style="width:60%">
+              会社名: {{electronic_mark_shop_name}}
+            </p>
+            {% if electronic_mark_act_base64 != "" %}
+            <img class="img-mark card__body--stamp" src={{electronic_mark_shop_base64}} alt="Red dot" />
+            {% endif %}
+            <p class="card__body--manager" style="width:60%">担当者：{{electronic_mark_shop_user_name}}</p>
+          </div>
+        </div>
+        <div class="approved-flow__card" style="width:32%">
+          <div class="card__title">ディーラー</div>
+          <div class="card__body">
+            <p class="card__body--company-name pb-3" style="width:60%">
+              会社名: {{electronic_mark_dealer_name}}
+            </p>
+            {% if electronic_mark_dealer_base64 != "" %}
+            <img class="img-mark card__body--stamp" src={{electronic_mark_dealer_base64}} alt="Red dot" />
+            {% endif %}
+            <p class="card__body--manager" style="width:60%">担当者：{{electronic_mark_dealer_user_name}}</p>
+          </div>
+        </div>
+        <div class="approved-flow__card" style="width:32%">
+          <div class="card__title">塗装メーカー</div>
+          <div class="card__body" style="height: 40px;">
+            <p class="card__body--company-name pb-3" style="width:60%">
+              会社名: {{electronic_mark_act_name}}
+            </p>
+            {% if electronic_mark_act_base64 != "" %}
+            <img class="img-mark card__body--stamp" src={{electronic_mark_act_base64}} alt="Red dot" />
+            {% endif %}
+            <p class="card__body--manager" style="width:60%">担当者：{{electronic_mark_act_user_name}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-normal pt-2 text-red">
+        <p>注意:</p>
+        <p>
+          (*1):
+          工事番号は、お客様に配付する取扱い説明書の裏の「お問い合わせ」蘭右上の番号を記載して下さい。<br />
+          (*2):
+          {{template_shop_name}}なし.は{{template_enterprise_name}}から契約時に提示された{{template_shop_name}}の認定なし.を記載して下さい。
+          <br />
+          (*3): 改修の場合は備考蘭に既存塗装の品種を記載して下さい。 <br />
+          (*4): 新築・改修のどちらに○を付けて下さい。<br />
+          (*5): 工事終了後お客様のサインを頂いて下さい。
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

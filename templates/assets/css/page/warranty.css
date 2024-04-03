@@ -1,0 +1,160 @@
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.text-red {
+  color: #f63f3f;
+}
+.text-yellow-400 {
+  color: #c3ac6b;
+}
+
+.align-items-center {
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.mt-3,
+.my-3 {
+  margin-top: 1rem !important;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.font-weight-bold {
+  font-weight: 600;
+}
+
+.px-1 {
+  padding: 0 1rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.text-normal, .ms {
+  font-size: 1.25rem;
+}
+
+.pl-16, .list-style-number {
+  padding-left: 1rem;
+}
+
+.border-b {
+  border-bottom: 1px solid #111;
+}
+
+.list-style-number {
+  list-style: decimal;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.title-pdf {
+  text-align: center;
+  font-weight: bold;
+  padding: 3.75rem 0;
+  margin: 3.75rem 4.5rem 6.25rem;
+  border-width: 5px 0;
+  border-color: #888;
+  border-style: solid;
+}
+
+.ms {
+  height: 330mm;
+  background: #fff;
+  padding: 30px 13px 20px;
+  position: relative;
+  border: 1px solid #111;
+}
+.ms p,
+.ms li {
+  margin: 1rem 0;
+}
+.ms-sticker {
+  position: absolute;
+  right: 13px;
+  padding: 2px;
+  font-size: 15px;
+  top: 16px;
+  border: 1px solid #111;
+  line-height: 1.25;
+}
+.ms-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ms-header__logo {
+  width: 5rem;
+  height: 3rem;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+.ms-header__text {
+  font-size: 1.125rem;
+}
+.ms-line1 {
+  font-size: 0.625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.ms-line1__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ms-line1__input {
+  text-align: center;
+}
+.ms-line1__input-2 {
+  width: 15rem;
+}
+.ms-line1__input-3 {
+  width: 2.5rem;
+}
+.ms-line1__input-4 {
+  width: 1.25rem;
+}
+.ms-line1__input-5 {
+  width: 1.25rem;
+}
+.ms-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ms-row + .ms-row {
+  border-top: 1px solid #111;
+}
+.ms .cell {
+  padding: 0.1875rem;
+}
+.ms .cell__value {
+  padding-left: 0.25rem;
+  line-height: 1;
+}
+.ms .cell + .cell {
+  border-left: 0.0625rem solid #111;
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP">
+
+  <style>
+    body {
+      font-family: "Noto Sans JP", serif;
+    }
+
+    .d-flex {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .text-red {
+      color: #f63f3f;
+    }
+
+    .text-yellow-400 {
+      color: #c3ac6b;
+    }
+
+    .align-items-center {
+      -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+      align-items: center !important;
+    }
+
+    .mt-3,
+    .my-3 {
+      margin-top: 1rem !important;
+    }
+
+    .ml-auto {
+      margin-left: auto;
+    }
+
+    .font-weight-bold {
+      font-weight: 600;
+    }
+
+    .px-1 {
+      padding: 0 1rem;
+    }
+
+    .pl-3 {
+      padding-left: 26rem;
+    }
+
+    .px-2 {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .text-normal,
+    .ms {
+      font-size: 1.25rem;
+    }
+
+    .pl-16,
+    .list-style-number {
+      padding-left: 1rem;
+    }
+
+    .border-b {
+      border-bottom: 1px solid #111;
+    }
+
+    .text-left {
+      text-align: left;
+    }
+
+    .list-style-number {
+      list-style: decimal;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .title-pdf {
+      text-align: center;
+      font-weight: bold;
+      padding: 3.75rem 0;
+      margin: 3.75rem 4.5rem 6.25rem;
+      border-width: 5px 0;
+      border-color: #888;
+      border-style: solid;
+    }
+
+    .ms {
+      height: 380mm;
+      /* background: #fff; */
+      padding: 30px 13px 20px;
+      position: relative;
+      border: 1px solid #111;
+    }
+
+    .ms p,
+    .ms li {
+      margin: 1rem 0;
+    }
+
+    .ms.fluid {
+      padding: 0;
+    }
+
+    .ms-sticker {
+      position: absolute;
+      right: 13px;
+      padding: 2px;
+      font-size: 15px;
+      top: 16px;
+      border: 1px solid #111;
+      line-height: 1.25;
+    }
+
+    .ms-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .ms-header__logo {
+      width: 5rem;
+      height: 3rem;
+      -o-object-fit: fill;
+      object-fit: fill;
+    }
+
+    .ms-header__text {
+      font-size: 1.125rem;
+    }
+
+    .ms-line1 {
+      font-size: 0.625rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end;
+    }
+
+    .ms-line1__item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .ms-line1__input {
+      text-align: center;
+    }
+
+    .ms-line1__input-2 {
+      width: 15rem;
+    }
+
+    .ms-line1__input-3 {
+      width: 2.5rem;
+    }
+
+    .ms-line1__input-4 {
+      width: 1.25rem;
+    }
+
+    .ms-line1__input-5 {
+      width: 1.25rem;
+    }
+
+    .ms-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .ms-row+.ms-row {
+      border-top: 1px solid #111;
+    }
+
+    .ms .cell {
+      padding: 0.1875rem;
+    }
+
+    .ms .cell__value {
+      padding-left: 0.25rem;
+      line-height: 1;
+    }
+
+    .ms .cell+.cell {
+      border-left: 0.0625rem solid #111;
+    }
+
+    @page {
+      size: A4;
+      /* margin: 0; */
+    }
+
+    @media print {
+
+      html,
+      body {
+        /* width: 210mm; */
+        height: 380mm;
+      }
+
+      .ms {
+        /* margin: 0; */
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mx-auto">
+    <div class="ms p-5">
+      <p class="ml-auto border-b" style="width: 25%;"><span>{{owner_name}}</span> <span
+          class="text-left" style="float:right">様</span>
+      </p>
+
+      <div class="ml-auto " style="width: 40%;">
+        <p class="border-b"> 登録No. <span> {{user_manual_no}} </span></p>
+      </div>
+
+      <div class="ml-auto" style="width: 40%;">
+        <p class="border-b">
+          取り扱い説明番No.
+          {% if construction_no is not None %}
+          <span>{{construction_no}}</span>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="title-pdf">
+        <p style="font-size: 1.5rem; ">
+          {% if template_enterprise_name is not None %}
+          {{template_enterprise_name}}
+          <!-- AGCコーテック株式会社 認定 -->
+          {% endif %}
+        </p>
+        <h4>
+          <strong style="letter-spacing: .05rem;font-size: 2.5rem;">
+            {% if template_title is not None %}
+            「{{template_title}}」
+            {% endif %}
+          </strong>
+          <br />
+          <strong style="letter-spacing: .1rem;font-size: 2.5rem;">
+            品質保証書
+          </strong>
+        </h4>
+      </div>
+
+      <p class="border-b" style="margin: 0 7.25rem;">
+        <span>物件名：</span>
+        <span style="display: inline-block;width:55%">{{building_name}}</span>
+        <span style="float:right;white-space: nowrap ;">
+          {{owner_name}}様
+        </span>
+      </p>
+
+      <p class="border-b " style="margin: 3.75rem 7.25rem 0;"><span>所在地：</span>
+        <span>{{address}}</span>
+      </p>
+    </div>
+    <div class="ms mt-3">
+      <p class="font-weight-bold subtitle">第ー条 <span style="padding-left: 3mm;">(保証範囲）</span></p>
+      <p>
+        品質保証の範囲は、ACR住宅メイクアップ工法のフッ素樹脂塗料「ポンフロ
+        ン/ルミステージ」が施工された塗装塗膜です。
+      </p>
+
+      {% for warranty in warranty_coverages %}
+      <p class="d-flex align-items-center ">
+        <span class="px-1">部位：</span>
+        <span style="display:inline-block;width: 150px;">{{warranty.0}}</span>
+        <span class="px-1">面積：</span>
+        <span style="display:inline-block;width: 150px;">{{warranty.1}}</span>
+        <span class="text-yellow-400">m2</span>
+      </p>
+      {% endfor %}
+
+      <p class="font-weight-bold subtitle">第二条 <span style="padding-left: 3mm;">(保証内容）</span></p>
+      <p>
+        フッ素樹脂塗料「ボンフロン/ルミステージ」 塗膜の外観変化について次の
+        項目を保証します。
+      </p>
+      <ul class="pl-16">
+        <li>(1) 塗膜面を目視した時に剥離がないこと。</li>
+        <li>
+          <p>(2) 塗装面の変退色が目視において著しく目立たないこと。</p>
+          <p class="text-red">
+            ※著しくとは、塗装面が見苦しく社会通念上明らかに補修が必要となる場合をいいます。
+          </p>
+        </li>
+        <li>
+          (3) (1)、(2) の判断は{{template_shop_name}}と製造メーカーが判断致します。
+        </li>
+      </ul>
+      <p class="font-weight-bold subtitle">第三条 <span style="padding-left: 3mm;">(保証期間）</span></p>
+      <p>保証期間は、工事完了引き渡し日から下記の通りとなります。</p>
+      <ul class="pl-16">
+        <li class="py-1">
+          完了引渡日:
+          <span style="display:inline-block;width: 3rem;text-align: right;">
+            {{ warranty_date_start.year }}
+          </span>
+          <span class="px-2 text-yellow-400">
+            年
+          </span>
+          <span style="display:inline-block;width: 3rem;text-align: right;">
+            {{ warranty_date_start.month }}
+          </span>
+          <span class="px-2 text-yellow-400">月</span>
+          <span style="display:inline-block;width: 3rem;text-align: right;">
+            {{ warranty_date_start.day }}
+          </span>
+          <span class="px-2 text-yellow-400">日</span>
+        </li>
+        <li class="py-1">
+          保証終了日:
+          <span style="display:inline-block;width: 3rem;text-align: right;">
+            {{ warranty_date_end.year }}
+          </span>
+          <span class="px-2 text-yellow-400">
+            年
+          </span>
+          <span style="display:inline-block;width: 3rem;text-align: right;">
+            {{ warranty_date_end.month }}
+          </span>
+          <span class="px-2 text-yellow-400">月</span>
+          <span style="display:inline-block;width: 3rem;text-align: right;">
+            {{ warranty_date_end.day }}
+          </span>
+          <span class="px-2 text-yellow-400">日</span>
+        </li>
+      </ul>
+      <p class="font-weight-bold subtitle">第四条 <span style="padding-left: 3mm;">(補償方法）</span></p>
+      <p>
+        保証期間内に、保証登録がされた物件で、第二条に定めた事故が発見され、
+        連絡があった場合、{{template_shop_name}}が、責任をもって対応致します。
+      </p>
+      <p>
+        {{template_shop_name}}は、補修方法を検討し、必要な工事内容と実施計画を提
+        出し、お客様に承認を得てから補修工事を実施致します。
+      </p>
+      <p>
+        但し、本保証書に基づく保証内容はACR住宅メイクアップ工法の補修のみ
+        に限定され、間接損害は含まれません。
+      </p>
+      <p class="font-weight-bold subtitle">第五条 <span style="padding-left: 3mm;">(免責事項）</span></p>
+      <p>
+        右頁の事項に起因する不具合が発生した場合は、保証の適用を除外致します。
+      </p>
+      <p class="font-weight-bold subtitle">第六条 <span style="padding-left: 3mm;">(付帯事項)</span></p>
+      <p>
+        第四条に定める補修を行った場合に於いても、保証期間は第三条の保証終了日迄と致します。
+      </p>
+    </div>
+    <div class="ms mt-3">
+      <p class="font-weight-bold subtitle">&lt;免責事項&gt;</p>
+      <p>
+        保証期間といえども次の事項に該当する場合は、保証の対象となりません。
+      </p>
+      <ul class="pl-16">
+        <li>
+          (1) 躯体・下地基材の劣化、吸水・吸湿、構造上の動きによる、われ、欠損、
+          変形・塗膜剥離等の損傷など外観変化。
+        </li>
+        <li>(2) シーリング材上の塗膜の汚染、われ、剥離。</li>
+        <li>
+          (3) 防水材、シーリング材、目地材、下地調整材などに起因する汚染、われ、
+          剥離等の損傷など外観変化。
+        </li>
+        <li>
+          (4) 下地から発生する錆、および周辺からのもらい錆による塗膜の剥離など
+          外観変化。
+        </li>
+        <li>
+          (5)
+          自然災害・周辺環境(地震、津波、水害、暴風、豪雨、豪雪、落雷、火事、
+          火山灰、放射線、など)による損傷など外観変化。
+        </li>
+        <li>
+          (6) 特殊な周辺環境(常時波しぶきがかかる海岸地域、酸・アルカリ・塩類・
+          腐食性ガスなどの影響を常時受ける地域、直接融雪 剤散布の影響を常時
+          受ける地域、温泉源泉近隣地域など)による損傷など外観変化。
+        </li>
+        <li>
+          (7)
+          飛来物や結露による微生物(かび・苔・藻)汚染や,もらい錆汚染および構造上に起因する汚染。
+        </li>
+        <li>(8) 動植物、鳥害等に起因する損傷など外観変化。</li>
+        <li>
+          (9) 保証期間内の外観変化の速やかな連絡がないために生じた拡大損害。
+        </li>
+        <li>(10) お客様の増改築に起因する損傷など外観変化。</li>
+        <li>(11) お客様または第三者の故意ならびに過失による損傷。</li>
+        <li>(12) 保証申請書類に事実と異なる記載があった場合。</li>
+        <li>
+          (13) 契約当時実用化された技術では予測することが不可能な現象に因る場合
+        </li>
+      </ul>
+      <h3 class="mt-3">
+        <strong class="pr-3">保証書作成日</strong>
+        <span style="display:inline-block;width: 3rem;text-align: right;">
+          {{ warranty_creation_date.year }}
+        </span>
+        <span class="px-2 text-yellow-400">
+          年
+        </span>
+        <span style="display:inline-block;width: 3rem;text-align: right;">
+          {{ warranty_creation_date.month }}
+        </span>
+        <span class="px-2 text-yellow-400">月</span>
+        <span style="display:inline-block;width: 3rem;text-align: right;">
+          {{ warranty_creation_date.day }}
+        </span>
+        <span class="px-2 text-yellow-400">日</span>
+
+      </h3>
+      <p class="text-black-300" style="margin-top:6rem">
+      <p>
+        {% if template_enterprise_name is not None %}
+        <!-- AGCコーテック株式会社 認定 -->
+        {{template_enterprise_name}} 認定
+        {% endif %}
+      </p>
+      <span>
+        {% if template_title is not None %}
+        {{template_title}}
+        {% endif %}
+      </span>
+      {% if template_shop_name is not None %}
+      <span class="pl-3">{{template_shop_name}}</span>
+      {% endif %}
+      </p>
+
+      <div style="border:1px solid black;height: fit-content; border-radius: 1rem; padding-left: 15%; padding-right: 15%;">
+        <p style="text-align: left; margin-left: 2rem; font-size: 32px; font-weight: bold;">
+          {% if shop_name is not None %}
+          {{shop_name}}
+          {% endif %}
+        </p>
+        <p style="text-align: left; margin-left: 2rem; font-size: 32px; font-weight: bold;">
+          {% if shop_postcode is not None %}
+          {{shop_postcode}}
+          {% endif %}
+        </p>
+        <p style="text-align: left; margin-left: 2rem; font-size: 32px; font-weight: bold;">
+          {% if shop_address is not None %}
+          {{shop_address}}
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <div class="ms fluid mt-3" style="text-align:center">
+      <img src="{{api_url}}/static/images/page4.jpeg" alt="page4" width="auto" height="100%">
+    </div>
+    <div class="ms fluid mt-3" style="text-align:center">
+      <img src="{{api_url}}/static/images/page5.jpeg" alt="page4" width="auto" height="100%">
+    </div>
+    <div class="ms fluid mt-3" style="text-align:center">
+      <img src="{{api_url}}/static/images/page6.jpeg" alt="page4" width="auto" height="100%">
+    </div>
+    <div class="ms mt-3" style="text-align:center">
+      <div style="margin-top: 50%; height:50%">
+        <img src="{{api_url}}/static/images/warranty-sheet-7.jpeg"
+          style="text-align:center; width: 25%;" alt="">
+        <div
+          style="width: 55%;text-align: left;margin-left: auto;margin-right: auto;margin-top:3rem">
+          <p style="font-weight: bolder;font-size:24px;margin:0">ルミフロンサポートシステムセンター</p>
+          <p style="font-weight: bolder;font-size:24px;margin:0">お問合せはこちら</p>
+          <p style="font-weight: bolder;font-size:24px;margin:0">
+            https://www.makeupshop.jp/mus/support/</p>
+        </div>
+        <div style="height: 50%; margin-top: 3rem">
+          <div style="text-align:right;font-weight: 950;font-size:36px">No.
+            {% if construction_no is not None %}
+            <span>{{construction_no}}</span>
+            {% endif %}
+          </div>
+          <div style="border: 1px solid black;border-radius: 1rem;height: 70%">
+            <p style="text-align:left;font-weight: bolder; margin-left: 2rem; margin-top:0.5rem">
+              お問合せ先は</p>
+            <p style="text-align: left; margin-left: 2rem; font-size: 32px; font-weight: bold;">
+              {% if shop_name is not None %}
+              {{shop_name}}
+              {% endif %}
+            </p>
+            <p style="text-align: left; margin-left: 2rem; font-size: 32px; font-weight: bold;">
+              {% if shop_postcode is not None %}
+              {{shop_postcode}}
+              {% endif %}
+            </p>
+            <p style="text-align: left; margin-left: 2rem; font-size: 32px; font-weight: bold;">
+              {% if shop_address is not None %}
+              {{shop_address}}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ms fluid mt-3" style="text-align:center">
+      <img src="{{api_url}}/static/images/thank-you-letter.png" alt="お礼状" height="100%"
+        width="auto" />
+    </div>
+  </div>
+</body>
+
+</html>

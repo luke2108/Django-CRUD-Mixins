@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDSRooft</title>
+  <style>
+    *,
+    h1,
+    h2,
+    h3,
+    h6,
+    p {
+      margin: 0;
+      padding: 0;
+      font-weight: 300;
+      list-style: none
+    }
+
+    .d-flex {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex
+    }
+
+    .text-red {
+      color: #f63f3f
+    }
+
+    .text-left {
+      text-align: left !important;
+    }
+
+    .text-right {
+      text-align: right !important;
+    }
+
+    .text-decoration {
+      text-decoration: underline !important;
+    }
+
+    .align-items-center {
+      -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+      align-items: center !important
+    }
+
+    .justify-content-between {
+      justify-content: space-between !important;
+    }
+
+    .font-weight-bold {
+      font-weight: 900;
+    }
+
+    .mt-3,
+    .my-3 {
+      margin-top: 1rem !important
+    }
+
+    .mr-2 {
+      margin-right: 0.5rem !important;
+    }
+
+
+    .sdsRoof {
+      width: 695px;
+      /* background: #fff; */
+      padding: 25px 15px 60px;
+      position: relative;
+      font-weight: 700;
+      margin: 0 auto;
+      border: 1px solid #d0d0d0;
+      font-size: 0.875rem
+    }
+
+    .sdsRoof .table-border,
+    .sdsRoof .table-border td,
+    .sdsRoof .table-border th {
+      border: 1px solid #111;
+      border-collapse: collapse
+    }
+
+    .sdsRoof .zizac-color {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center
+    }
+
+    .sdsRoof .zizac-color span:nth-child(2n) {
+      color: #c3ac6b
+    }
+
+    .sdsRoof .zizac-color span:not(:first-child) {
+      margin-left: 5px
+    }
+
+    .sdsRoof .head__title {
+      text-align: center
+    }
+
+    .sdsRoof .head__title h1 {
+      font-style: normal;
+      text-transform: capitalize;
+      color: #111;
+      font-weight: 600
+    }
+
+    .sdsRoof .head__title__top {
+      font-size: 0.875rem;
+      line-height: 23px
+    }
+
+    .sdsRoof .head__title__bottom {
+      line-height: 28px
+    }
+
+    .sdsRoof .head__table {
+      margin-top: 15px;
+      width: 100%
+    }
+
+    .sdsRoof .head__table td,
+    .sdsRoof .head__table th {
+      width: 33.3333%;
+      padding: 7px 10px;
+      font-weight: 300
+    }
+
+    .sdsRoof .head__table .border-none-l {
+      border-left: none
+    }
+
+    .sdsRoof .head__table .border-none-r {
+      border-right: none
+    }
+
+    .sdsRoof .content {
+      margin-top: 15px
+    }
+
+    .sdsRoof .content__group__title {
+      margin-bottom: 15px
+    }
+
+    .sdsRoof .content__group__title h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 160%;
+      margin-bottom: 3px
+    }
+
+    .sdsRoof .content__group__title .first-child-custom tr td,
+    .sdsRoof .content__group__title .first-child-custom tr th {
+      padding: 4px 5px
+    }
+
+    .sdsRoof .content__group__title .first-child-custom tr td:first-child,
+    .sdsRoof .content__group__title .first-child-custom tr th:first-child {
+      width: 18%
+    }
+
+    .sdsRoof .content__group__title .main-custom-mg-w div {
+      min-width: 25%
+    }
+
+    .sdsRoof .content__table {
+      width: 100%
+    }
+
+    .sdsRoof .content__table td,
+    .sdsRoof .content__table th {
+      padding: 7px 10px;
+      font-weight: 300
+    }
+
+    .sdsRoof .content-outer-wall {
+      margin-top: 15px
+    }
+
+    .sdsRoof .content-outer-wall__group__title {
+      margin-bottom: 15px
+    }
+
+    .sdsRoof .content-outer-wall__group__title h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 160%;
+      margin-bottom: 3px
+    }
+
+    .sdsRoof .content-outer-wall__group__title .first-child-custom tr td,
+    .sdsRoof .content-outer-wall__group__title .first-child-custom tr th {
+      padding: 4px 5px
+    }
+
+    .sdsRoof .content-outer-wall__group__title .first-child-custom tr td:first-child,
+    .sdsRoof .content-outer-wall__group__title .first-child-custom tr th:first-child {
+      width: 18%
+    }
+
+    .sdsRoof .content-outer-wall__w-33 {
+      min-width: 33.3333%
+    }
+
+    .sdsRoof .content-outer-wall__table {
+      width: 100%
+    }
+
+    .sdsRoof .content-outer-wall__table td,
+    .sdsRoof .content-outer-wall__table th {
+      padding: 7px 10px;
+      font-weight: 300
+    }
+
+    .sdsRoof .content-outer-wall__main-color-child {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center
+    }
+
+    .sdsRoof .content-outer-wall__main-color-child span:nth-child(2n) {
+      color: #c3ac6b
+    }
+
+    .sdsRoof .content-outer-wall__main-color-child span:not(:first-child) {
+      margin-left: 5px
+    }
+
+    .sdsRoof .bottom__group__tab {
+      padding: 6px 0;
+      border-bottom: 1px solid #000
+    }
+
+    .sdsRoof .bottom__group__tab>div {
+      font-weight: 600;
+      line-height: 160%
+    }
+
+    .sdsRoof .bottom__group__content {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex
+    }
+
+    .sdsRoof .bottom__group__content__date {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      justify-content: flex-end
+    }
+
+    .sdsRoof .bottom__group__content__title {
+      text-align: center;
+      font-weight: 600;
+      line-height: 160%;
+      margin: 8px 0
+    }
+
+    .sdsRoof .bottom__group__content__item {
+      border: 1px solid #525252;
+      border-radius: 10px;
+      width: 47%;
+      margin-top: 12px;
+      padding: 12px 8px 15px
+    }
+
+    .sdsRoof .bottom__group__content__item:first-child {
+      margin-right: 12px
+    }
+
+    .sdsRoof .bottom__table {
+      width: 100%
+    }
+
+    .sdsRoof .bottom__table td,
+    .sdsRoof .bottom__table th {
+      padding: 7px 10px
+    }
+
+    .sdsRoof .bottom__box-stamp {
+      width: 100%;
+      position: relative;
+      height: calc(100% - 20px)
+    }
+
+    .sdsRoof .bottom__box-stamp img {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      width: 100%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%)
+    }
+
+    .sdsRoof .bottom__table-empty {
+      width: 50%;
+    }
+
+    .sdsRoof .bottom__table-empty>tr:first-child {
+      height: 20.7px
+    }
+
+    .sdsRoof .bottom__table-empty>tr:last-child {
+      height: calc(100% - 20.7px)
+    }
+
+    .sdsRoof .bottom__stamp-table {
+      height: 100%
+    }
+
+    .sdsRoof .bottom__stamp-table>tr:first-child {
+      height: 20.7px
+    }
+
+    .sdsRoof .bottom__stamp-table>tr:last-child {
+      height: calc(100% - 20.7px)
+    }
+
+    .sdsRoof .bottom__group-content-text {
+      min-height: 66px;
+      margin-bottom: 10px
+    }
+
+    .sdsRoof .bottom__padding-custom td,
+    .sdsRoof .bottom__padding-custom th {
+      padding: 8px 4px
+    }
+
+    .sdsRoof .bottom__min-w-100 {
+      min-width: 100px
+    }
+
+    .sdsRoof .bottom__sm-text {
+      font-size: 9px;
+      line-height: 130%
+    }
+
+    .sdsRoof .bottom__w-70 {
+      width: 70%
+    }
+
+    .sdsRoof .bottom__w-30 {
+      width: 30%
+    }
+
+    .sdsRoof .main-custom-mg-w div {
+      min-width: 25%
+    }
+
+    .sdsRoof .main-custom-mg-w-50 div {
+      min-width: 50%
+    }
+
+    .sdsRoof .main-custom-mg-w-33 div {
+      min-width: 33.3333%
+    }
+
+    .break-new-page {
+      page-break-before: always;
+      padding-top: 50px;
+    }
+
+    .img-mark {
+      height: 60px;
+      width: auto;
+    }
+
+    .approved-flow .card__body--stamp {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      border: 2px solid #f63f3f;
+      border-radius: 50px;
+      top: -2px;
+      right: 0;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="sdsRoof">
+    <div class="head">
+      <div class="head__title">
+        <h1 id="desc-table-top" class="head__title__top">
+          {% if template_title is not None %}
+            {{template_title}}
+          {% endif %}
+        </h1>
+        <h1 class="head__title__bottom">屋根塗装診断書</h1>
+      </div>
+      <table class="head__table table-border" aria-describedby="desc-table-top">
+        <tr>
+          <th>
+            <div class="d-flex">
+              <span class="font-weight-bold mr-2">診断日</span>
+              <div class="main-color-child">
+                <span>{{diagnosis_date.year}}</span> <span>年</span> <span>{{diagnosis_date.month}}</span> <span>月</span>
+                <span>{{diagnosis_date.day}}</span> <span>日</span>
+              </div>
+            </div>
+          </th>
+          <th>
+            <div class="text-left">
+              <span class="font-weight-bold mr-2">物件名</span>
+              <span>{{building_name}}</span>
+            </div>
+          </th>
+          <th>
+            <div class="d-flex justify-content-between align-items-center">
+              <span>{{owner_name}}</span>
+              <span class="font-weight-bold mr-2">様邸</span>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <td colspan="2" class="border-none-r">
+            <span class="font-weight-bold mr-2">現場住所:</span>
+            <span>{{diagnostic.construction_prefecture}} {{diagnostic.construction_address}}
+              {{diagnostic.construction_address_extend}}</span>
+          </td>
+          <td class="border-none-l">
+            <span class="font-weight-bold mr-2">Tel:</span>
+            {% if tel is not None %}
+            <span>{{tel}}</span>
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <span class="font-weight-bold mr-2">{{template_shop_name}}</span>
+            <span>{{shop_name}}</span>
+          </td>
+          <td>
+            <span class="font-weight-bold mr-2">担当者</span>
+            <span>{{pic_name}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <div class="d-flex">
+              <div class="w-50">
+                <span class="font-weight-bold mr-2">Tel:</span>
+                <span class="mr-2">{{shop_tel}}</span>
+              </div>
+              <div class="w-50">
+                <span class="font-weight-bold mr-2">fax:</span>
+                <span>{{shop_fax}}</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="content">
+      <div class="content__group">
+        <div class="content__group__title">
+          <h2 id="desc-table-content-1">1.建物概要</h2>
+          <div class="content__group-table">
+            <table class="content__table table-border" aria-describedby="desc-table-content-1">
+              <tr>
+                <th>
+                  <div class="d-flex">
+                    <span class="font-weight-bold mr-2">竣工年月</span>
+                    <div class="zizac-color mr-2">
+                      <span>{{building_completion_date}}</span>
+                    </div>
+                    {% if building_age is not None %}
+                    <span>(築 {{building_age}} 年)</span>
+                    {% endif %}
+                  </div>
+                </th>
+                <th colspan="2">
+                  <div class="d-flex justify-content-between">
+                    <div style="padding-right:5px">
+                      <span class="font-weight-bold mr-2">改修履歴</span>
+                      <span>
+                        {% if diagnostic.building_renovation_history is False %}
+                        なし
+                        {% else %}
+                        あり
+                        {% endif %}
+                      </span>
+                    </div>
+                    <div>
+                      <span>回</span>
+                      {% if diagnostic.building_renovation_times is not None%}
+                      <span>{{diagnostic.building_renovation_times}}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <span class="font-weight-bold mr-2">構造</span>
+                  {% if building_structure is not None %}
+                    <span>{{building_structure}}</span>
+                  {% endif %}
+                </td>
+                <td>
+                  <div class="d-flex">
+                    <span class="font-weight-bold mr-2">建坪</span>
+                    <div class="zizac-color"><span>{{building_area}}</span><span> 坪</span></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex">
+                    <span class="font-weight-bold mr-2">塗装面積</span>
+                    <div class="zizac-color"><span>{{building_painted_area}}</span><span>m2</span></div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="content__group">
+        <div class="content__group__title">
+          <h2 id="desc-table-content-2">
+            2.下地状況 (該当する下地の調査項目はすべて記入してください。<span class="text-red">
+              ＊印は写真を添付してください。</span>）
+          </h2>
+          <div class="content__group-table">
+            <table class="content__table table-border first-child-custom" aria-describedby="desc-table-content-2">
+              <tr>
+                <th class="font-weight-bold">現状</th>
+                <th class="font-weight-bold">下地状況</th>
+              </tr>
+              {% for conditions in condition_substrate %}
+              <tr>
+                <td class="font-weight-bold">{{ conditions.title}}</td>
+                <td>
+                  <div class="d-flex main-custom-mg-w">
+                    {% for condition in conditions.items %}
+                    <div>
+                      <span class="font-weight-bold mr-2">{{condition.title }}</span>
+                      <span>
+                        {% if condition.body.value is False %}
+                        なし
+                        {% elif condition.body.value is True %}
+                        あり
+                        {% else %}
+                        {{ condition.body.value }}
+                        {% endif %}
+                      </span>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  {% if conditions.title == "金属屋根" %}
+                  <p class="text-red">
+                    注意点：錆が3割を超えている場合、または穴が開いている場合は塗装不可。
+                  </p>
+                  <p class="text-red">
+                    注意点：改修履歴が２回以上の場合は、塗装不可。
+                  </p>
+                  {% endif %}
+                </td>
+              </tr>
+              {% if conditions.title == "モニエル瓦" %}
+              <tr>
+                <td colspan="3">
+                  <p class="text-red">
+                    注意点: 粘土瓦 (陶器瓦、いぶし瓦等) は塗装不可。
+                  </p>
+                  <p class="text-red">
+                    注意点:
+                    下地が割れているものは、塗装不可。交換してから塗装してください。
+                  </p>
+                  <p class="text-red">
+                    注意点: 塗り替え履歴が２回以上の場合は塗装不可。
+                  </p>
+                </td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="content__group">
+        <div class="content__group__title">
+          <h2 id="desc-table-content-3">
+            3.既存塗膜状況（現状仕上及び劣化状況はすべて記入して下さい。）
+          </h2>
+          <div class="content__group-table">
+            <table class="content__table table-border first-child-custom" aria-describedby="desc-table-content-3">
+              <tr>
+                <th class="font-weight-bold text-left">現状仕上</th>
+                <th class="font-weight-bold">下地状況</th>
+              </tr>
+              {% for conditions in condition_existing_paint_film %}
+              <tr>
+                <td class="font-weight-bold">{{ conditions.title}}</td>
+                <td>
+
+                  <div class="d-flex mb-2 main-custom-mg-w">
+                    {% for condition in conditions.items %}
+                    <!-- <div> -->
+                    {% if condition.title != "Other"%}
+                    <span class="font-weight-bold">
+                      {% if condition.title in required_fields%}
+                      <span class="text-red">＊</span>
+                      {% endif %}
+                      {{ condition.title}}</span>
+                    {% endif %}
+
+                    <span>
+                      {% if condition.body.value is False %}
+                      なし
+                      {% elif condition.body.value is True %}
+                      あり
+                      {% else %}
+                      {{ condition.body.value }}
+                      {% endif %}
+                    </span><br />
+                    <!-- </div> -->
+                    {% endfor %}
+
+                  </div>
+
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="content__group">
+        <div class="content__group__title">
+          <h2 id="desc-table-content-4">4.その他不具合状況</h2>
+          <div class="content__group-table">
+            <table class="content__table table-border first-child-custom" aria-describedby="desc-table-content-4">
+              {% for conditions in condition_other %}
+              <tr>
+                <td class="font-weight-bold">{{ conditions.title}}</td>
+                <td class="font-weight-bold">
+                  <div class="d-flex main-custom-mg-w">
+                    {% for condition in conditions.items %}
+                    {% if condition.title != "kanna_image_category_uuid" %}
+                    <div>
+                      {% if condition.title != "Other"%}
+                      <span class="font-weight-bold mr-2"> {{ condition.title}}</span>
+                      {% endif %}
+                      <span>
+                        {% if condition.body.value is False %}
+                        なし
+                        {% elif condition.body.value is True %}
+                        あり
+                        {% else %}
+                        {% if condition.body.value is not None %}
+                        {{ condition.body.value }}
+                        {% endif %}
+                        {% endif %}
+                      </span>
+                      <!-- <span>({{ condition.body.value}})</span> -->
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom break-new-page">
+      <div class="bottom__group">
+        <div class="bottom__group__tab d-flex justify-content-between">
+          <div class="lef">上記外壁診断内容を確認しました。</div>
+          <div class="right zizac-color">
+            <span></span> <span class="mr-2">{{diagnostic.construction_owner}}
+              様&nbsp;&nbsp;</span>&nbsp;&nbsp;<span>{{confirm_date.year}}</span>
+            <span>年</span> <span>{{confirm_date.month}}</span> <span>月</span> <span>{{confirm_date.day}}</span>
+            <span>日</span>
+          </div>
+        </div>
+        <div class="bottom__group__content">
+          <div class="bottom__group__content__item">
+            <div class="bottom__group__content__date">
+              <div class="zizac-color">
+                <span>{{application_date.year}}</span>
+                <span>年</span> <span>{{application_date.month}}</span>
+                <span>月</span> <span>{{application_date.day}}</span> <span>日</span>
+              </div>
+            </div>
+            <h3 id="desc-table-bottom-left" class="bottom__group__content__title">
+              品質保証申請書
+            </h3>
+            <div class="bottom__group-content-text">
+              <div class="zizac-color">
+                <u>
+                  <span>{{template_enterprise_name}}㈱</span>
+                </u>
+                <span>御中</span>
+              </div>
+              <p class="bottom__sm-text mt-1">
+                上記物件に対し、下記
+                {% if template_title is not None %}
+                {{template_title}}
+                {% else %}
+                &nbsp;
+                {% endif %}
+                での品質保証を申請します。
+              </p>
+              <p class="text-red font-weight-bold mt-2">
+                提案塗装仕様 ※必ずご記入下さい。
+              </p>
+            </div>
+            <div class="group-content-table">
+              <div class="d-flex">
+                <div class="bottom__w-70 mr-1">
+                  <table id="agc-sealed-table" class="bottom__table table-border bottom__padding-custom"
+                    aria-describedby="desc-table-bottom-left" style="width: 300px; min-height: 120px;">
+                    <tr>
+                      <th class="font-weight-bold bottom__sm-text" style="height: 10px; white-space: nowrap;">仕様名</th>
+                      <th class="font-weight-bold bottom__sm-text" style="height: 10px">
+                        <div class="d-flex justify-content-between">
+                          <p>{{construction_method.spec_name}}</p>
+                          <p>工法</p>
+                        </div>
+                      </th>
+                      <th class="font-weight-bold bottom__sm-text" style="width: 30%;">
+                        印
+                      </th>
+                    </tr>
+                    <tr>
+                      <td class="font-weight-bold bottom__sm-text"
+                        style="vertical-align: text-top; text-align: center;">
+                        使用
+                        <br />
+                        製品名
+                      </td>
+                      <td style="vertical-align: text-top;">
+                        {% for cm_step in construction_method_step %}
+                        <p class="mb-2">
+                          <span class="font-weight-bold bottom__sm-text">
+                            {% if cm_step.type == "PAINT_BOTTOM_1" %}
+                            下塗 1
+                            {% elif cm_step.type == "PAINT_BOTTOM_1" %}
+                            下塗 2
+                            {% elif cm_step.type == "PAINT_MIDDLE" %}
+                            中塗
+                            {% elif cm_step.type == "PAINT_OVER_1" %}
+                            上塗 1
+                            {% else %}
+                            上塗 2
+                            {% endif %}:
+                          </span>
+                          <span class="bottom__sm-text">{{ cm_step.material.name}}</span>
+                        </p>
+                        {% endfor %}
+                      </td>
+                      <td class="text-center">
+                        <div style="width: 100%;text-align: center;">
+                          {% if electronic_mark_shop_base64 != "" %}
+                          <img class="img-mark card__body--stamp" src={{electronic_mark_shop_base64}} alt="Red dot" />
+                          {% endif %}
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mt-3">
+              <span class="mr-2 ml-2">写真の添付</span>
+              <div class="zizac-color">
+                <span>{{total_photos}}</span>
+                <span>枚</span>
+              </div>
+            </div>
+          </div>
+          <div class="bottom__group__content__item">
+            <div class="bottom__group__content__date">
+              <div class="zizac-color">
+                <span>{{act_approve_date.year}}</span>
+                <span>年</span>
+                <span>{{act_approve_date.month}}</span>
+                <span>月</span>
+                <span>{{act_approve_date.day}}</span>
+                <span>日</span>
+              </div>
+            </div>
+            <h3 id="desc-table-bottom-right" class="bottom__group__content__title">
+              品質保証申請回答書
+            </h3>
+            <div class="bottom__group-content-text">
+              <div class="zizac-color">
+                <span class="bottom__min-w-100 text-decoration">{{shop_name}}</span><span>御中</span>
+              </div>
+              <p class="bottom__sm-text mt-1">
+                上記物件の内容を確認し
+                {% if template_title is not None %}
+                {{template_title}}
+                {% else %}
+                &nbsp;
+                {% endif %}
+                の品質保証申請を受け付けました。結果は以下の通りです。
+              </p>
+            </div>
+            <div class="group-content-table mt-2">
+              <div>
+                <table id="shop-sealed-table" class="bottom__table table-border bottom__table-empty"
+                  aria-describedby="desc-table-bottom-right" style="width: 200px; min-height: 120px;">
+                  <tr style="height: 10px">
+                    <th class="font-weight-bold bottom__sm-text text-center" style="width: 50%;">承認</th>
+                    <th class="font-weight-bold bottom__sm-text text-center" style="width: 50%;">不可</th>
+                  </tr>
+                  <tr>
+                    <td class="text-center">
+                      <div style="width: 100%;text-align: center;">
+                        {% if electronic_mark_act_base64 != "" %}
+                        <img class="img-mark card__body--stamp" src={{electronic_mark_act_base64}} alt="Red dot" />
+                        {% endif %}
+                      </div>
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="text-red font-weight-bold" style="margin-top: 8px">
+                ※標準仕様書を厳守下さい。 工事後、標準仕様書に適合して
+                いない場合は、保証書発行不可 となる場合があります。
+              </div>
+              <div class="d-flex justify-content-end" style="margin-top: 8px">
+                {{template_enterprise_name}}㈱
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

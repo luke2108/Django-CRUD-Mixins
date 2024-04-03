@@ -1,0 +1,53 @@
+# python django
+django
+djangorestframework
+djangorestframework-simplejwt
+django-rest-swagger
+gunicorn
+
+# core
+python-dotenv
+
+# postgres sql
+psycopg2
+
+# sentry
+sentry-sdk
+
+# add new
+djoser
+django-admin-sortable2
+django-extensions==3.2.0
+gevent==21.12.0
+psycogreen==1.0.2
+black==22.3.0
+flake8==4.0.1
+isort==5.10.1
+pre-commit==2.15.0
+djet==0.2.2
+factory_boy==3.2.0
+drf_yasg
+django-cors-headers
+html2text
+Pillow
+pydantic
+posuto==2022.8.0
+pandas
+openpyxl
+jaconv
+PyPDF2
+
+# xhtml2pdf==0.2.8
+pdfkit==1.0.0
+wkhtmltopdf==0.2
+django-wkhtmltopdf==3.4.0
+
+# notifications
+django-notifications-hq==1.7.0
+
+# convert west time to JP
+jeraconv
+
+# encrypt
+# django-mirage-field==1.4.0
+django-import-export

@@ -1,0 +1,7 @@
+env
+.env
+__pycache__/
+# ignore pycache directory
+pycache/
+*.pyc
+logs/
