@@ -15,6 +15,7 @@ from .constants import (
 
 class Seal:
     def draw_seal(self, text):
+        print(text)
         image = Image.new("RGBA", (1080, 1080), (200, 1, 1, 1))
         font = ImageFont.truetype(r"utilities/seal/YujiBoku-Regular.ttf", 100)
         draw = ImageDraw.Draw(image)
@@ -32,8 +33,8 @@ class Seal:
         if len(text) == 6:
             image = self.draw_seal_6([c for c in text], image, font, draw)
 
-        # image.show()
-        # image.save("output.png")
+        image.show()
+        image.save("output.png")
 
         buffered = BytesIO()
         image.save(buffered, format="PNG")
@@ -105,8 +106,3 @@ class Seal:
         image = image.crop(AREA_SEAL_6)
 
         return image
-
-
-# example
-# seal = Seal()
-# seal.draw_seal("齋齋")

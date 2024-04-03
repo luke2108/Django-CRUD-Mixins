@@ -52,8 +52,6 @@ INSTALLED_APPS = [
     "django_extensions",
     "corsheaders",
     "authentication",
-    # "areas",
-    # "status",
     "common"
 ]
 
