@@ -118,16 +118,12 @@ REST_FRAMEWORK = {
     ),
     # Swagger
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
-    # Versioning: https://www.django-rest-framework.org/api-guide/versioning/#versioning-with-rest-framework
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",  # Using URL path
     "DEFAULT_VERSION": "v1",  # If the parameter is not passed or the version is wrong, the version number obtained is v1
     "ALLOWED_VERSIONS": [
         "v1",
-        # "v2",
-    ],  # The version number must be v1 or v2, otherwise an error is reported,
+    ],
     "VERSION_PARAM": "version",
-    # Exception
-    # "EXCEPTION_HANDLER": "utilities.exceptions.api_exception.custom_exception_handler",
 }
 
 SIMPLE_JWT = {

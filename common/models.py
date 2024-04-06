@@ -10,7 +10,6 @@ class Area(models.Model):
 
     class Meta:
         db_table = "area"
-        app_label = 'status'
         ordering = ["-id"]
 
 class Status(models.Model):
@@ -21,5 +20,4 @@ class Status(models.Model):
 
     class Meta:
         db_table = "status"
-        app_label = 'status'
         ordering = ["-id"]
